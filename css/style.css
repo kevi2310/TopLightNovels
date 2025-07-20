@@ -1,0 +1,374 @@
+:root {
+  --color-primary: #2980b9;
+  --color-hover: #e67e22;
+  --color-dark-bg: #2b2d42;
+  --color-text: #f3f3f3;
+}
+
+/* === Base Styles === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif;
+  background: #f3f3f3;
+  color: #333;
+}
+
+/* === Headings and Paragraphs === */
+h1 {
+  text-align: center;
+  color: #c0392b;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* === Grid Layout for Novels === */
+    .novel-card-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid #ccc;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .novel-card-section img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 30px;
+    flex-shrink: 0;
+  }
+
+  .novel-card-section .novel-info {
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .novel-card-section .novel-info h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .novel-card-section .novel-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .novel-card-section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .novel-card-section img {
+      margin: 0 0 20px 0;
+    }
+  }
+
+header {
+  position: relative;
+  background-image: url('../image/logo.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 120px 20px;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f3f3f3); /* light mode fade */
+  z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  header::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1e1e1e); /* dark mode fade */
+  }
+}
+
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
+header .content-wrap {
+  width: 100%;
+  max-width: none;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* === Navigation Styling === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(43, 45, 66, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px 0;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+nav .icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  nav .icon {
+    display: block;
+  }
+
+  nav ul.responsive {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(51, 51, 51, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    padding-top: 60px;
+    gap: 0;
+    z-index: 1100;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  nav ul.responsive.active {
+    transform: translateX(0);
+  }
+
+  nav ul.responsive li {
+    width: 100%;
+  }
+
+  nav ul.responsive li a {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    color: white;
+  }
+
+  nav ul.responsive li a:hover {
+    background-color: #555;
+  }
+}
+
+nav ul li a {
+  line-height: 1.5;
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+/* === Buttons === */
+.btn {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #1f5d8b;
+}
+
+/* === Section Styling === */
+section {
+  background-color: #f3f3f3;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* === Link and Scrollbar Styling === */
+a {
+  color: #3498db;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #e67e22;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #777;
+  padding: 20px;
+}
+
+/* === Responsive Media Queries === */
+@media (max-width: 1024px) {
+  .novel-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .novel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .novel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Dark Mode Support (Optional) === */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1e1e1e;
+    color: #eee;
+  }
+
+  header, nav, footer, section {
+    background-color: #2b2b2b;
+  }
+
+  .novel-card {
+    background-color: #333;
+    border: 1px solid #444;
+  }
+
+  nav a,
+.dropdown-content a {
+  color: #eee;
+}
+
+nav a:hover,
+.dropdown-content a:hover {
+  background-color: #555;
+}
+.no-scroll{
+  overflow: hidden;
+}
+
+/* Desktop dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 1200;
+  border-radius: 4px;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+  background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  nav a,
+  .dropdown-content a {
+    color: #eee;
+  }
+
+  nav a:hover,
+  .dropdown-content a:hover {
+    background-color: #555;
+  }
+}
+}
