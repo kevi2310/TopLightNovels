@@ -83,18 +83,23 @@ header {
   position: relative;
   background-image: url('../image/logo.jpeg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
-  color: white;
-  padding: 120px 20px;
-  min-height: 40vh;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 1.3em;
+
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  color: white;
   letter-spacing: 1px;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -111,13 +116,13 @@ header::after {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 150px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f3f3f3); /* light mode fade */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f3f3f3); 
   z-index: 1;
 }
 
 @media (prefers-color-scheme: dark) {
   header::after {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1e1e1e); /* dark mode fade */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1e1e1e);
   }
 }
 
