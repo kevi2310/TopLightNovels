@@ -379,3 +379,13 @@ nav a:hover,
   display: block;
   margin: 0 auto 2rem auto;
 }
+
+.content-wrap {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  display: block;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
