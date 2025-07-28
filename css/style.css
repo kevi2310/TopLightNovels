@@ -394,3 +394,10 @@ section.content-wrap {
   background-color: #000;   
   color: #fff;              
 }
+
+@media (max-width: 768px) {
+  /* Disable desktop-style hover behavior on mobile */
+  .dropdown:hover .dropdown-content {
+    display: none !important;
+  }
+}
