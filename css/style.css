@@ -389,3 +389,8 @@ nav a:hover,
 section.content-wrap {
   text-align: center;
 }
+
+.modal-content {
+  background-color: #000;   
+  color: #fff;              
+}
