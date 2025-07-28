@@ -398,6 +398,6 @@ section.content-wrap {
 @media (max-width: 768px) {
   /* Disable desktop-style hover behavior on mobile */
   .dropdown:hover .dropdown-content {
-    display: none !important;
+    display: none;
   }
 }
