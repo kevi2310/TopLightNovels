@@ -30,11 +30,15 @@ $(document).ready(function () {
     }
   });
 
-  // Dropdown toggle for mobile
+  // Dropdown toggle for mobile & when menu is active
   $('.dropdown > a').on('click', function (e) {
     if ($('nav ul.responsive').hasClass('active') || window.innerWidth <= 768) {
       e.preventDefault();
       $(this).siblings('.dropdown-content').slideToggle(200);
+      $(this).toggleClass('active'); // Toggle arrow rotation
+      // Update aria-expanded for accessibility
+      let expanded = $(this).attr('aria-expanded') === 'true';
+      $(this).attr('aria-expanded', !expanded);
     }
   });
 });
