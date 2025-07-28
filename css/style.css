@@ -385,3 +385,7 @@ nav a:hover,
   padding: 0 20px;
   box-sizing: border-box;
 }
+
+section.content-wrap {
+  text-align: center;
+}
