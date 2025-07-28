@@ -3,7 +3,7 @@ $(document).ready(function () {
     if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       const isActive = $('nav ul.responsive').toggleClass('active').hasClass('active');
-      $('body').toggleClass('no-scroll');
+      $('body').toggleClass('no-scroll', isActive);
       $(this).attr('aria-expanded', isActive);
     }
   });
@@ -27,6 +27,14 @@ $(document).ready(function () {
       $('nav ul.responsive').removeClass('active');
       $('body').removeClass('no-scroll');
       $('.icon').attr('aria-expanded', false);
+    }
+  });
+
+  // Dropdown toggle for mobile
+  $('.dropdown > a').on('click', function (e) {
+    if ($('nav ul.responsive').hasClass('active') || window.innerWidth <= 768) {
+      e.preventDefault();
+      $(this).siblings('.dropdown-content').slideToggle(200);
     }
   });
 });
